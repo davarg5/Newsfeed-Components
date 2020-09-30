@@ -101,16 +101,51 @@ const data = [
     {three separate paragraph elements}
 
     <span class="expandButton">+</span>
-  </div>
+  </div>*/
 
-  Step 2: Still inside `articleMaker`, add an event listener to the span.expandButton.
-  This listener should toggle the class 'article-open' on div.article.
+function articleMaker(obj)
+{
+  const article = document.createElement('div');
+  article.classList.add("article");
 
-  Step 3: Don't forget to return something from your function!
+  const h2 = document.createElement('h2');
+  h2.textContent = obj.title;
+  article.appendChild(h2);
 
-  Step 4: Outside your function now, loop over the data. At each iteration you'll use your component
-  to create a div.article element and append it to the DOM inside div.articles (see index.html).
+  const dateOf = document.createElement('p');
+  dateOf.classList.add('date');
+  dateOf.textContent = obj.date;
+  article.appendChild(dateOf);
 
-  Step 5: Try adding new article object to the data array. Make sure it is in the same format as the others.
-  Refresh the page to see the new article.
-*/
+  const p1 = document.createElement('p');
+  p1.textContent = obj.firstParagraph;
+  article.appendChild(p1);
+
+  const p2 = document.createElement('p');
+  p2.textContent = obj.secondParagraph;
+  article.appendChild(p2);
+
+  const p3 = document.createElement('p');
+  p3.textContent = obj.thirdParagraph;
+  article.appendChild(p3);
+
+  const span = document.createElement('span');
+  span.classList.add("expandButton");
+  span.textContent = "+";
+  article.appendChild(span);
+
+  return article;
+
+}
+
+ /* Step 2: Still inside `articleMaker`, add an event listener to the span.expandButton.
+  This listener should toggle the class 'article-open' on div.article.*/
+
+ /* Step 3: Don't forget to return something from your function!*/
+
+  /*Step 4: Outside your function now, loop over the data. At each iteration you'll use your component
+  to create a div.article element and append it to the DOM inside div.articles (see index.html).*/
+
+  /*Step 5: Try adding new article object to the data array. Make sure it is in the same format as the others.
+  Refresh the page to see the new article.*/
+
