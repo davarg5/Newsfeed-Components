@@ -16,9 +16,14 @@ let menuItems = [
     <ul>
       {each menu item as an <li>}
     </ul>
-  </div>
+  </div>*/
 
-  The 'menuMaker' takes an array of menu items as its only argument.
+  function menuMaker(obj)
+  {
+    
+  }
+
+  /*The 'menuMaker' takes an array of menu items as its only argument.
 
   Step 2: Inside the function, iterate over the array creating a list item <li> element for each item in the array.
   Add those items to the <ul>
