@@ -101,16 +101,91 @@ const data = [
     {three separate paragraph elements}
 
     <span class="expandButton">+</span>
-  </div>
+  </div>*/
 
-  Step 2: Still inside `articleMaker`, add an event listener to the span.expandButton.
-  This listener should toggle the class 'article-open' on div.article.
+function articleMaker(obj)
+{
+  const article = document.createElement('div');
+  article.classList.add("article");
 
-  Step 3: Don't forget to return something from your function!
+  const h2 = document.createElement('h2');
+  h2.textContent = obj.title;
+  article.appendChild(h2);
 
-  Step 4: Outside your function now, loop over the data. At each iteration you'll use your component
-  to create a div.article element and append it to the DOM inside div.articles (see index.html).
+  const dateOf = document.createElement('p');
+  dateOf.classList.add('date');
+  dateOf.textContent = obj.date;
+  article.appendChild(dateOf);
 
-  Step 5: Try adding new article object to the data array. Make sure it is in the same format as the others.
-  Refresh the page to see the new article.
-*/
+  const p1 = document.createElement('p');
+  p1.textContent = obj.firstParagraph;
+  article.appendChild(p1);
+
+  const p2 = document.createElement('p');
+  p2.textContent = obj.secondParagraph;
+  article.appendChild(p2);
+
+  const p3 = document.createElement('p');
+  p3.textContent = obj.thirdParagraph;
+  article.appendChild(p3);
+
+  
+  const span = document.createElement('span');
+  span.classList.add("expandButton");
+  span.textContent = "+";
+  article.appendChild(span);
+  span.addEventListener('click', e => {
+    article.classList.toggle("article-open");
+  });
+
+  return article;
+
+}
+console.log(articleMaker(data[0]));
+
+data.push({
+  title: 'Week 4 NFL Power Rankings: 1-32 poll, plus 2020 preseason predictions we got wrong',
+  date: 'Sep 29th, 2020',
+  firstParagraph: `The Chiefs entered Monday night's game 28th in yards allowed but sixth in scoring defense, so the results have been mixed. In their first two games, the Chiefs weren't as solid defensively as they were down the stretch last season. They could still get there, and Monday night was a big step, but if it eventually happens, it will have taken more time than initially thought. -- Adam Teicher`,
+
+  secondParagraph: `"Hollywood" hasn't exactly struggled, leading the Ravens with 156 yards receiving through three games. But he hasn't exploded as expected after fully recovering from foot surgery. Take away a 47-yard grab and Brown is averaging a pedestrian 9.9 yards per reception. He has to make more strides before establishing himself as a viable No. 1 wide receiver in the NFL. -- Jamison Hensley`,
+
+  thirdParagraph: `The Seahawks are 3-0 despite allowing 434 passing yards to Atlanta, 397 to New England and 461 to Dallas on Sunday. There have been some mitigating factors. They've faced a lot of passes with opponents trying to come back from large deficits, they haven't gotten enough help from the pass rush and they've been hit with injuries, including one that ended safety Marquise Blair's season and another that kept Dunbar out of the Cowboys game. But there's still too much talent to be getting gashed through the air the way they have been. -- Brady Henderson`
+})
+
+data.push({
+  title: 'Tennessee Titans COVID-19 outbreak: What we know about the positive coronavirus tests',
+  date: 'Sep 29th, 2020',
+  firstParagraph: `The NFL has its first COVID-19 team outbreak. Ten members of the Tennessee Titans have produced confirmed positive test results in the past four days, a rash of coronavirus infections that could potentially have spread during Sunday's game against the Minnesota Vikings at U.S. Bank Stadium.`,
+
+  secondParagraph: `The Titans have closed their practice facility until at least Saturday, while the Vikings have closed theirs until they have further test results. Additionally, the Titans' Week 4 game against the Pittsburgh Steelers has been postponed, though a decision has not been made yet on the Vikings' matchup with the Houston Texans.`,
+
+  thirdParagraph: `Here's what we know at the moment, with appropriate context. We will continue to update as news develops.`
+})
+
+data.push({
+  title: 'Ravens chief problem will haunt them until the postseason',
+  date: 'Sep 30th, 2020',
+  firstParagraph: `After Monday's deflating 34-20 loss to the Kansas City Chiefs, the Baltimore Ravens acknowledged they're essentially in a no-win situation with the football world for the next three months.`,
+
+  secondParagraph: `The Ravens can rebound and dominate their remaining 13 regular-season games -- they're favored in every single one -- but they can't provide answers to the biggest questions facing this team now until January.`,
+
+  thirdParagraph: `Baltimore can record double-digit victories and capture the AFC North for a third straight year. But can the Ravens win in the playoffs?`
+})
+
+data.forEach( obj => {
+  const art = articleMaker(obj);
+  document.body.appendChild(art);
+});  
+
+ /* Step 2: Still inside `articleMaker`, add an event listener to the span.expandButton.
+  This listener should toggle the class 'article-open' on div.article.*/
+
+ /* Step 3: Don't forget to return something from your function!*/
+
+  /*Step 4: Outside your function now, loop over the data. At each iteration you'll use your component
+  to create a div.article element and append it to the DOM inside div.articles (see index.html).*/
+
+  /*Step 5: Try adding new article object to the data array. Make sure it is in the same format as the others.
+  Refresh the page to see the new article.*/
+
